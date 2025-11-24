@@ -45,6 +45,9 @@ def main():
         return states
         
     for filename, content in res.items():
+        if content is None:
+            print(f"==============\n[CRITICAL ERROR] Failed to load JSON output for: {filename}\nPlease run: ./cpu < test/{filename.replace('.json', '.yo')}\nto see the actual error message.\n==============")
+            continue
         rc = transform_mem(content)
         ra = transform_mem(answer[filename])
         if rc != ra:
