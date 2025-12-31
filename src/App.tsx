@@ -10,12 +10,17 @@ const queryClient = new QueryClient();
 
 
 
-const App = () => (
+const App = () => {
+  const rawBase = import.meta.env.BASE_URL ?? '/';
+  const basename =
+    rawBase === '/' ? '' : rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase;
+
+  return (
   <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
           <Routes>
             <Route path="/" element={<SimulatorPageVSCode />} />
             <Route path="*" element={<NotFound />} />
@@ -24,6 +29,7 @@ const App = () => (
       </TooltipProvider>
     </QueryClientProvider>
   </ThemeProvider>
-);
+  );
+};
 
 export default App;
