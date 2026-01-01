@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Y86-64 CPU Simulator | Cyberpunk Edition</title>
+    <script>
+        // Single Page App redirect for GitHub Pages
+        // Redirects all 404s to the main app, preserving the path
+        const basePath = '/PJ-Y86-64-Simulator';
+        const path = window.location.pathname;
+        
+        // If already at base path or subpath, redirect to base
+        if (path.startsWith(basePath)) {
+            // Store the path for the app to handle
+            sessionStorage.setItem('redirectPath', path);
+        }
+        
+        // Redirect to the base path
+        window.location.replace(basePath + '/');
+    </script>
+</head>
+<body>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/PJ-Y86-64-Simulator/" />
+    </noscript>
+</body>
+</html>
