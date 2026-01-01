@@ -11,12 +11,11 @@ const queryClient = new QueryClient();
 
 
 const App = () => {
-  const rawBase = import.meta.env.BASE_URL ?? '/';
-  const basename =
-    rawBase === '/' ? '' : rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase;
+  // Hardcode basename for GitHub Pages deployment
+  const basename = '/PJ-Y86-64-Simulator';
 
   return (
-  <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Sonner />
