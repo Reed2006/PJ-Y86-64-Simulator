@@ -9,14 +9,6 @@ export default defineConfig({
   optimizeDeps: {
     include: ["lucide-react", "framer-motion", "recharts"],
   },
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:4000",
-        changeOrigin: true,
-      },
-    },
-  },
   build: {
     rollupOptions: {
       output: {
